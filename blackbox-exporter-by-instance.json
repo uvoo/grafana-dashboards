@@ -1,51 +1,12 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "8.1.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -64,18 +25,26 @@
   },
   "description": "Prometheus Blackbox Exporter Overview",
   "editable": true,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 147,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 599,
@@ -88,6 +57,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
@@ -148,15 +118,21 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.1.0",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_http_status_code{instance=~\"$instance\"}",
           "format": "time_series",
@@ -166,14 +142,14 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "HTTP Status Code",
       "type": "timeseries"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -229,7 +205,6 @@
         "y": 0
       },
       "id": 2,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -248,13 +223,17 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
-      "repeat": null,
+      "pluginVersion": "10.2.3",
       "repeatDirection": "v",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_success{instance=~\"$instance\"}",
           "format": "time_series",
@@ -268,8 +247,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -326,7 +307,6 @@
         "y": 0
       },
       "id": 20,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -345,13 +325,17 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
-      "repeat": null,
+      "pluginVersion": "10.2.3",
       "repeatDirection": "h",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_http_status_code{instance=~\"$instance\"}",
           "format": "time_series",
@@ -365,8 +349,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -407,7 +393,6 @@
         "y": 0
       },
       "id": 27,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -426,11 +411,16 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_http_version{instance=~\"$instance\"}",
           "format": "time_series",
@@ -445,13 +435,19 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -463,6 +459,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -515,16 +512,21 @@
             "mean"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.1.0",
-      "repeat": null,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_duration_seconds{instance=~\"$instance\"}",
           "format": "time_series",
@@ -534,14 +536,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Probe Duration",
       "type": "timeseries"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -586,7 +588,6 @@
         "y": 6
       },
       "id": 23,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -605,18 +606,24 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
-      "repeat": null,
+      "pluginVersion": "10.2.3",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "avg(probe_duration_seconds{instance=~\"$instance\"}) by (target)",
+          "expr": "avg(probe_duration_seconds{instance=~\"$instance\"}) by (instance)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -624,8 +631,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -671,7 +680,6 @@
         "y": 6
       },
       "id": 24,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -690,19 +698,25 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
-      "repeat": null,
+      "pluginVersion": "10.2.3",
       "repeatDirection": "h",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "avg(probe_dns_lookup_time_seconds{instance=~\"$instance\"}) by (target)",
+          "expr": "avg(probe_dns_lookup_time_seconds{instance=~\"$instance\"}) by (instance)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -710,8 +724,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -752,7 +768,6 @@
         "y": 6
       },
       "id": 28,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -771,11 +786,16 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_ip_protocol{instance=~\"$instance\"}",
           "format": "time_series",
@@ -789,13 +809,19 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -807,6 +833,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 1,
             "pointSize": 5,
@@ -855,15 +882,21 @@
             "mean"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.1.0",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_http_duration_seconds{instance=~\"$instance\", phase=~\"$phase\"}",
           "format": "time_series",
@@ -873,14 +906,14 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "HTTP Duration (phase = $phase)",
       "type": "timeseries"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -937,7 +970,6 @@
         "y": 12
       },
       "id": 19,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -956,13 +988,17 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
-      "repeat": null,
+      "pluginVersion": "10.2.3",
       "repeatDirection": "h",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_ssl_earliest_cert_expiry{instance=~\"$instance\"} - time()",
           "format": "time_series",
@@ -972,13 +1008,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
       "title": "SSL Expiry",
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1034,7 +1071,6 @@
         "y": 12
       },
       "id": 18,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -1053,13 +1089,17 @@
           "titleSize": 12,
           "valueSize": 12
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "8.1.0",
-      "repeat": null,
+      "pluginVersion": "10.2.3",
       "repeatDirection": "v",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
           "exemplar": true,
           "expr": "probe_http_ssl{instance=~\"$instance\"}",
           "format": "time_series",
@@ -1073,8 +1113,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1082,8 +1124,11 @@
           },
           "custom": {
             "align": "auto",
-            "displayMode": "auto",
-            "filterable": false
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
           },
           "mappings": [
             {
@@ -1120,10 +1165,18 @@
         "y": 12
       },
       "id": 29,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
         "showHeader": false,
         "sortBy": [
           {
@@ -1132,9 +1185,14 @@
           }
         ]
       },
-      "pluginVersion": "8.1.0",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "probe_tls_version_info{instance=~\"$instance\"}",
           "format": "table",
@@ -1155,23 +1213,127 @@
               "Value": true,
               "Value #A": true,
               "__name__": true,
-              "instance": true,
               "job": true,
               "version": false
             },
             "indexByName": {},
             "renameByName": {
-              "__name__": ""
+              "instance": ""
             }
           }
         }
       ],
       "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Kxk9n2tSk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 32,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Kxk9n2tSk"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "probe_tls_version_info{instance=~\"$instance\"}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "TLS Test",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "auto",
+            "source": "version"
+          }
+        }
+      ],
+      "type": "timeseries"
     }
   ],
-  "refresh": "30s",
-  "schemaVersion": 30,
-  "style": "dark",
+  "refresh": "",
+  "schemaVersion": 39,
   "tags": [
     "blackbox",
     "prometheus"
@@ -1179,13 +1341,21 @@
   "templating": {
     "list": [
       {
+        "current": {
+          "selected": false,
+          "text": "Coldstone",
+          "value": "PRYvpU-Vz"
+        },
         "hide": 0,
+        "includeAll": false,
         "label": "datasource",
+        "multi": false,
         "name": "DS_PROMETHEUS",
         "options": [],
         "query": "prometheus",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "type": "datasource"
       },
       {
@@ -1197,8 +1367,6 @@
           "text": "30s",
           "value": "30s"
         },
-        "description": null,
-        "error": null,
         "hide": 0,
         "label": "Interval",
         "name": "interval",
@@ -1271,15 +1439,18 @@
         "type": "interval"
       },
       {
-        "allValue": null,
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "Kxk9n2tSk"
+        },
         "definition": "label_values(probe_success, instance)",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": true,
-        "label": null,
         "multi": true,
         "name": "instance",
         "options": [],
@@ -1297,12 +1468,16 @@
         "useTags": false
       },
       {
-        "allValue": null,
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "Kxk9n2tSk"
+        },
         "definition": "label_values(probe_http_duration_seconds, phase)",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "HTTP phase",
@@ -1325,7 +1500,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -1348,7 +1523,8 @@
     ]
   },
   "timezone": "",
-  "title": "Prometheus Blackbox Exporter",
-  "uid": "pS6ZuGV7z",
-  "version": 1
+  "title": "busk2",
+  "uid": "uvoo3",
+  "version": 13,
+  "weekStart": ""
 }
