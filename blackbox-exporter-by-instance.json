@@ -27,15 +27,12 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 147,
+  "id": 149,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -129,12 +126,9 @@
       "pluginVersion": "8.1.0",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "exemplar": true,
-          "expr": "probe_http_status_code{instance=~\"$instance\"}",
+          "expr": "probe_http_status_code{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -146,10 +140,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -230,16 +221,15 @@
       "repeatDirection": "v",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "probe_success{instance=~\"$instance\"}",
+          "expr": "probe_success{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -247,10 +237,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -332,16 +319,15 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "probe_http_status_code{instance=~\"$instance\"}",
+          "expr": "probe_http_status_code{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -349,10 +335,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -417,16 +400,15 @@
       "pluginVersion": "10.2.3",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "probe_http_version{instance=~\"$instance\"}",
+          "expr": "probe_http_version{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -435,10 +417,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -523,12 +502,9 @@
       "pluginVersion": "8.1.0",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "exemplar": true,
-          "expr": "probe_duration_seconds{instance=~\"$instance\"}",
+          "expr": "probe_duration_seconds{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -540,10 +516,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -612,13 +585,10 @@
       "pluginVersion": "10.2.3",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg(probe_duration_seconds{instance=~\"$instance\"}) by (instance)",
+          "expr": "avg(probe_duration_seconds{instance=~\"$instance\", job=~\"$job\"}) by (instance)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -631,10 +601,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -705,13 +672,10 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg(probe_dns_lookup_time_seconds{instance=~\"$instance\"}) by (instance)",
+          "expr": "avg(probe_dns_lookup_time_seconds{instance=~\"$instance\", job=~\"$job\"}) by (instance)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -724,10 +688,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -792,16 +753,15 @@
       "pluginVersion": "10.2.3",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "probe_ip_protocol{instance=~\"$instance\"}",
+          "expr": "probe_ip_protocol{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -809,10 +769,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -893,10 +850,7 @@
       "pluginVersion": "8.1.0",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "exemplar": true,
           "expr": "probe_http_duration_seconds{instance=~\"$instance\", phase=~\"$phase\"}",
           "format": "time_series",
@@ -910,10 +864,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -995,16 +946,15 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "probe_ssl_earliest_cert_expiry{instance=~\"$instance\"} - time()",
+          "expr": "probe_ssl_earliest_cert_expiry{instance=~\"$instance\", job=~\"$job\"} - time()",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1012,10 +962,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1096,16 +1043,15 @@
       "repeatDirection": "v",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "probe_http_ssl{instance=~\"$instance\"}",
+          "expr": "probe_http_ssl{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1113,10 +1059,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1188,13 +1131,10 @@
       "pluginVersion": "10.2.3",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "probe_tls_version_info{instance=~\"$instance\"}",
+          "expr": "probe_tls_version_info{instance=~\"$instance\", job=~\"$job\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1226,10 +1166,7 @@
       "type": "table"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Kxk9n2tSk"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1305,13 +1242,10 @@
       },
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Kxk9n2tSk"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "probe_tls_version_info{instance=~\"$instance\"}",
+          "expr": "probe_tls_version_info{instance=~\"$instance\", job=~\"$job\"}",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -1343,8 +1277,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Coldstone",
-          "value": "PRYvpU-Vz"
+          "text": "default",
+          "value": "default"
         },
         "hide": 0,
         "includeAll": false,
@@ -1353,6 +1287,7 @@
         "name": "DS_PROMETHEUS",
         "options": [],
         "query": "prometheus",
+        "queryValue": "",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1440,14 +1375,44 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": [
+            "url"
+          ],
+          "value": [
+            "url"
+          ]
         },
         "datasource": {
           "type": "prometheus",
           "uid": "Kxk9n2tSk"
         },
+        "definition": "label_values(probe_success, job)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "job",
+        "options": [],
+        "query": {
+          "query": "label_values(probe_success, job)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "${DS_PROMETHEUS}", 
         "definition": "label_values(probe_success, instance)",
         "hide": 0,
         "includeAll": true,
@@ -1523,8 +1488,8 @@
     ]
   },
   "timezone": "",
-  "title": "busk2",
-  "uid": "uvoo3",
-  "version": 13,
+  "title": "URL instances by Uvoo",
+  "uid": "WUirkpu8KI",
+  "version": 1,
   "weekStart": ""
 }
