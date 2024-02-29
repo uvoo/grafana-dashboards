@@ -852,7 +852,7 @@
         {
           "datasource": "${DS_PROMETHEUS}",
           "exemplar": true,
-          "expr": "probe_http_duration_seconds{instance=~\"$instance\", phase=~\"$phase\"}",
+          "expr": "probe_http_duration_seconds{instance=~\"$instance\", phase=~\"$phase\", job=~\"$job\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
